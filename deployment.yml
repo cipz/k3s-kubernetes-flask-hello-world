@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app-pod-image
-        image: kubernetes-flask-hello-world
+        image: k3s-kubernetes-flask-hello-world
         imagePullPolicy: Never
         resources: 
           limits:
