@@ -6,14 +6,14 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: test-app
+      app: flask-app-pod
   template:
     metadata:
       labels:
-        app: test-app
+        app: flask-app-pod
     spec:
       containers:
-      - name: test-app
+      - name: flask-app-pod-image
         image: kubernetes-flask-hello-world
         imagePullPolicy: Never
         resources: 
@@ -30,8 +30,9 @@ metadata:
   name: flask-app-service
 spec:
   selector:
-    app: flask-app-deployment
+    app: flask-app-pod
   ports:
-  - port: 6000
+  - protocol: "TCP"
+    port: 6000
     targetPort: 5000
   type: LoadBalancer
